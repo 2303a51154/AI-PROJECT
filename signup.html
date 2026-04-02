@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up | SwiftDrive</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 flex items-center justify-center min-h-screen p-4">
+    <div class="bg-white p-10 rounded-2xl shadow-2xl max-w-md w-full">
+        <div class="text-center mb-8">
+            <h1 class="text-2xl font-bold text-blue-600 italic mb-2">SWIFTDRIVE</h1>
+            <h2 class="text-3xl font-bold text-gray-900">Create Account</h2>
+            <p class="text-gray-500 mt-2">Join the premium driving club</p>
+        </div>
+
+        <form class="space-y-4" onsubmit="handleSignup(event)">
+            <div>
+                <label class="text-xs font-bold text-gray-400 uppercase ml-1">Full Name</label>
+                <input type="text" required class="w-full border p-3 rounded-xl outline-blue-500 bg-gray-50" placeholder="John Doe">
+            </div>
+            <div>
+                <label class="text-xs font-bold text-gray-400 uppercase ml-1">Email Address</label>
+                <input type="email" required class="w-full border p-3 rounded-xl outline-blue-500 bg-gray-50" placeholder="john@example.com">
+            </div>
+            <div>
+                <label class="text-xs font-bold text-gray-400 uppercase ml-1">Create Password</label>
+                <input type="password" required class="w-full border p-3 rounded-xl outline-blue-500 bg-gray-50" placeholder="••••••••">
+            </div>
+            
+            <p class="text-[10px] text-gray-400 px-1">
+                By signing up, you agree to SwiftDrive's Terms of Service and Privacy Policy.
+            </p>
+
+            <button type="submit" class="w-full bg-blue-600 text-white py-4 rounded-xl font-bold shadow-lg hover:bg-blue-700 transition transform active:scale-95">
+                Join Now
+            </button>
+        </form>
+
+        <p class="text-center mt-8 text-gray-600 text-sm">
+            Already a member? <a href="login.html" class="text-blue-600 font-bold hover:underline">Log In</a>
+        </p>
+    </div>
+
+    <script>
+        function handleSignup(event) {
+            event.preventDefault(); // Stops the form from refreshing the page
+            alert("Account Created Successfully! Redirecting to Login...");
+            window.location.href = "login.html"; // Navigates to the login page
+        }
+    </script>
+</body>
+</html>

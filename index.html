@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SwiftDrive | Premium Fleet</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <nav class="bg-white p-6 shadow-md flex justify-between items-center sticky top-0 z-40">
+        <h1 class="text-2xl font-bold text-blue-600 tracking-tight">SWIFTDRIVE</h1>
+        <div class="space-x-4 flex items-center">
+            <button class="text-gray-600 font-medium">Help</button>
+            <a href="login.html" class="text-gray-800 font-bold hover:text-blue-600 transition">Login</a>
+            <a href="signup.html" class="bg-gray-800 text-white px-6 py-2 rounded-lg hover:bg-gray-700 transition">Sign Up</a>
+        </div>
+    </nav>
+
+    <section class="hero-bg text-white py-24 px-10 text-center relative overflow-hidden">
+        <div class="grid-bg"></div>
+        <h2 class="text-5xl font-extrabold mb-8 relative z-10">Find Your Perfect Ride</h2>
+        
+        <div class="bg-white p-8 rounded-2xl shadow-2xl max-w-5xl mx-auto flex flex-wrap gap-6 justify-center text-gray-800 relative z-10">
+            <div class="flex flex-col items-start min-w-[200px]">
+                <label class="input-label">Location</label>
+                <input type="text" id="locInput" value="Hyderabad" class="custom-input">
+            </div>
+            <div class="flex flex-col items-start">
+                <label class="input-label">Pickup Date</label>
+                <input type="date" id="pickupDate" value="2026-04-10" class="custom-input">
+            </div>
+            <div class="flex flex-col items-start">
+                <label class="input-label">Return Date</label>
+                <input type="date" id="returnDate" value="2026-04-12" class="custom-input">
+            </div>
+            <div class="flex items-end">
+                <button onclick="searchCars()" class="bg-blue-600 text-white px-10 py-4 rounded-xl font-bold hover:bg-blue-700 transition shadow-lg h-[56px]">Search Cars</button>
+            </div>
+        </div>
+    </section>
+
+    <section id="car-results" class="max-w-7xl mx-auto py-16 px-6">
+        <h3 class="text-3xl font-bold mb-10 text-slate-800">Available Fleet in <span id="locDisplay" class="text-blue-600"></span></h3>
+        
+       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            
+            <div class="car-card bg-white rounded-xl shadow-lg overflow-hidden border border-gray-100 group">
+                <div class="overflow-hidden h-48">
+                    <img src="https://i.ibb.co/SD7YYk61/front-left-side-47.avif" class="w-full h-full object-cover">
+                </div>
+                <div class="p-6">
+                    <h4 class="text-xl font-bold">Tata Sierra EV</h4>
+                    <p class="text-gray-500 text-sm mb-3">SUV • 5 Seats • Electric</p>
+                    <p class="text-blue-600 font-bold text-lg">$145/day</p>
+                    <button onclick="openBooking('Tata Sierra EV', 145)" class="w-full bg-gray-900 text-white py-3 rounded-lg mt-4 font-bold hover:bg-blue-600 transition">Book Now</button>
+                </div>
+            </div>
+
+            <div class="car-card bg-white rounded-xl shadow-lg overflow-hidden border border-gray-100 group">
+                <div class="overflow-hidden h-48">
+                    <img src="https://images.unsplash.com/photo-1617788138017-80ad40651399?w=500&q=80" class="w-full h-full object-cover">
+                </div>
+                <div class="p-6">
+                    <h4 class="text-xl font-bold">Tesla Model S Plaid</h4>
+                    <p class="text-gray-500 text-sm mb-3">Sedan • 5 Seats • Electric</p>
+                    <p class="text-blue-600 font-bold text-lg">$190/day</p>
+                    <button onclick="openBooking('Tesla Model S Plaid', 190)" class="w-full bg-gray-900 text-white py-3 rounded-lg mt-4 font-bold hover:bg-blue-600 transition">Book Now</button>
+                </div>
+            </div>
+
+            <div class="car-card bg-white rounded-xl shadow-lg overflow-hidden border border-gray-100 group">
+                <div class="overflow-hidden h-48">
+                    <img src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?w=500&q=80" class="w-full h-full object-cover">
+                </div>
+                <div class="p-6">
+                    <h4 class="text-xl font-bold">Porsche 911 Carrera</h4>
+                    <p class="text-gray-500 text-sm mb-3">Sports • 2 Seats • Petrol</p>
+                    <p class="text-blue-600 font-bold text-lg">$299/day</p>
+                    <button onclick="openBooking('Porsche 911 Carrera', 299)" class="w-full bg-gray-900 text-white py-3 rounded-lg mt-4 font-bold hover:bg-blue-600 transition">Book Now</button>
+                </div>
+            </div>
+
+            <div class="car-card bg-white rounded-xl shadow-lg overflow-hidden border border-gray-100 group">
+                <div class="overflow-hidden h-48">
+                    <img src="https://images.unsplash.com/photo-1555215695-3004980ad54e?w=500&q=80" class="w-full h-full object-cover">
+                </div>
+                <div class="p-6">
+                    <h4 class="text-xl font-bold">BMW M4 Competition</h4>
+                    <p class="text-gray-500 text-sm mb-3">Coupe • 4 Seats • Petrol</p>
+                    <p class="text-blue-600 font-bold text-lg">$145/day</p>
+                    <button onclick="openBooking('BMW M4 Competition', 145)" class="w-full bg-gray-900 text-white py-3 rounded-lg mt-4 font-bold hover:bg-blue-600 transition">Book Now</button>
+                </div>
+            </div>
+
+            <div class="car-card bg-white rounded-xl shadow-lg overflow-hidden border border-gray-100 group">
+                <div class="overflow-hidden h-48">
+                    <img src="https://images.unsplash.com/photo-1606611013016-969c19ba27bb?w=500&q=80" class="w-full h-full object-cover">
+                </div>
+                <div class="p-6">
+                    <h4 class="text-xl font-bold">Range Rover Sport</h4>
+                    <p class="text-gray-500 text-sm mb-3">Luxury SUV • 5 Seats • Diesel</p>
+                    <p class="text-blue-600 font-bold text-lg">$250/day</p>
+                    <button onclick="openBooking('Range Rover Sport', 250)" class="w-full bg-gray-900 text-white py-3 rounded-lg mt-4 font-bold hover:bg-blue-600 transition">Book Now</button>
+                </div>
+            </div>
+
+            <div class="car-card bg-white rounded-xl shadow-lg overflow-hidden border border-gray-100 group">
+                <div class="overflow-hidden h-48">
+                    <img src="https://i.ibb.co/XZsTXZBr/images.webp" class="w-full h-full object-cover">
+                </div>
+                <div class="p-6">
+                    <h4 class="text-xl font-bold">Audi R8 V10</h4>
+                    <p class="text-gray-500 text-sm mb-3">Supercar • 2 Seats • Petrol</p>
+                    <p class="text-blue-600 font-bold text-lg">$210/day</p>
+                    <button onclick="openBooking('Audi R8 V10', 210)" class="w-full bg-gray-900 text-white py-3 rounded-lg mt-4 font-bold hover:bg-blue-600 transition">Book Now</button>
+                </div>
+            </div>
+
+            <div class="car-card bg-white rounded-xl shadow-lg overflow-hidden border border-gray-100 group">
+                <div class="overflow-hidden h-48">
+                    <img src="https://images.unsplash.com/photo-1520050206274-a1ae44613e6d?w=500&q=80" class="w-full h-full object-cover">
+                </div>
+                <div class="p-6">
+                    <h4 class="text-xl font-bold">Mercedes G63 AMG</h4>
+                    <p class="text-gray-500 text-sm mb-3">SUV • 5 Seats • Petrol</p>
+                    <p class="text-blue-600 font-bold text-lg">$350/day</p>
+                    <button onclick="openBooking('Mercedes G63 AMG', 350)" class="w-full bg-gray-900 text-white py-3 rounded-lg mt-4 font-bold hover:bg-blue-600 transition">Book Now</button>
+                </div>
+            </div>
+
+            <div class="car-card bg-white rounded-xl shadow-lg overflow-hidden border border-gray-100 group">
+                <div class="overflow-hidden h-48">
+                    <img src="https://images.unsplash.com/photo-1584345604476-8ec5e12e42dd?w=500&q=80" class="w-full h-full object-cover">
+                </div>
+                <div class="p-6">
+                    <h4 class="text-xl font-bold">Ford Mustang GT</h4>
+                    <p class="text-gray-500 text-sm mb-3">Muscle • 4 Seats • Petrol</p>
+                    <p class="text-blue-600 font-bold text-lg">$120/day</p>
+                    <button onclick="openBooking('Ford Mustang GT', 120)" class="w-full bg-gray-900 text-white py-3 rounded-lg mt-4 font-bold hover:bg-blue-600 transition">Book Now</button>
+                </div>
+            </div>
+
+            </div>
+    </section>
+
+    <div id="bookingModal" class="modal">
+        <div class="bg-white p-10 rounded-[2rem] max-w-md w-full relative shadow-2xl">
+            <button onclick="closeModal()" class="absolute top-6 right-6 text-3xl text-gray-300 hover:text-gray-600">&times;</button>
+            <div id="formContent">
+                <h2 class="text-2xl font-bold mb-1">Confirm Booking</h2>
+                <p id="carNameText" class="text-blue-600 font-bold mb-8 italic"></p>
+                <div class="space-y-4">
+                    <input type="text" placeholder="Full Name" class="custom-input border border-gray-100 bg-gray-50">
+                    <input type="email" placeholder="Email Address" class="custom-input border border-gray-100 bg-gray-50">
+                    <div class="bg-blue-50 p-5 rounded-2xl text-center">
+                        <span class="text-gray-600 font-medium">Total: </span>
+                        <span id="priceDisplay" class="font-bold text-blue-600 text-2xl"></span>
+                    </div>
+                    <button onclick="showSuccess()" class="w-full bg-blue-600 text-white py-4 rounded-xl font-bold shadow-xl hover:bg-blue-700 transition">Confirm & Pay</button>
+                </div>
+            </div>
+            <div id="successContent" class="hidden text-center py-6">
+                <div class="text-6xl mb-4">✨</div>
+                <h2 class="text-2xl font-bold">Booking Confirmed!</h2>
+                <button onclick="closeModal()" class="mt-8 bg-gray-100 px-8 py-3 rounded-xl font-bold hover:bg-gray-200 transition">Close</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function searchCars() {
+            const loc = document.getElementById('locInput').value;
+            document.getElementById('locDisplay').innerText = loc;
+            document.getElementById('car-results').style.display = 'block';
+            window.scrollTo({ top: 700, behavior: 'smooth' });
+        }
+        function openBooking(name, price) {
+            document.getElementById('carNameText').innerText = name;
+            const d1 = new Date(document.getElementById('pickupDate').value);
+            const d2 = new Date(document.getElementById('returnDate').value);
+            const days = Math.ceil(Math.abs(d2 - d1) / (1000 * 60 * 60 * 24)) || 1;
+            document.getElementById('priceDisplay').innerText = "$" + (price * days);
+            document.getElementById('bookingModal').classList.add('active');
+            document.getElementById('formContent').style.display = 'block';
+            document.getElementById('successContent').style.display = 'none';
+        }
+        function closeModal() { document.getElementById('bookingModal').classList.remove('active'); }
+        function showSuccess() {
+            document.getElementById('formContent').style.display = 'none';
+            document.getElementById('successContent').classList.remove('hidden');
+            document.getElementById('successContent').style.display = 'block';
+        }
+    </script>
+</body>
+</html>
